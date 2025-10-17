@@ -5,11 +5,17 @@ using System.Data;
 
 Console.WriteLine("Hello, World!");
 
-ProductService productService = new ProductService();
-productService.Read();
-productService.Create();
-productService.Update();
-productService.Delete();
+//ProductService productService = new ProductService();
+//productService.Read();
+//productService.Create();
+//productService.Update();
+//productService.Delete();
+
+ProductDapperService productDapperService = new ProductDapperService();
+productDapperService.Read();
+productDapperService.Create();
+productDapperService.Update();
+productDapperService.Delete();
 
 Console.ReadLine();
 
