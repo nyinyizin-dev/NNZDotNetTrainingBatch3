@@ -22,8 +22,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NNZDotNetTrainingBatch3.ConsoleApp2.Database\NNZDotNetTrainingBatch3.ConsoleApp2.Database.csproj" />
-  </ItemGroup>
-
 </Project>

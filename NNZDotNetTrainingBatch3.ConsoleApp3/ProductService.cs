@@ -1,76 +1,70 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NNZDotNetTrainingBatch3.ConsoleApp2
+namespace NNZDotNetTrainingBatch3.ConsoleApp3
 {
     public class ProductService
-    {   
+    {
         SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
         {
             DataSource = "DESKTOP-EEBGV84",
             InitialCatalog = "MiniPOS",
             UserID = "sa",
             Password = "sasa@123",
-            TrustServerCertificate= true,
+            TrustServerCertificate = true,
 
         };
         public void Read()
         {
-            //SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder();
-            //sqlConnectionStringBuilder.DataSource = "DESKTOP-EEBGV84"; // server name
-            //sqlConnectionStringBuilder.InitialCatalog = "MiniPOS"; // database name
-            //sqlConnectionStringBuilder.UserID = "sa"; // username
-            //sqlConnectionStringBuilder.Password = "sasa@123"; // password
-            //sqlConnectionStringBuilder.TrustServerCertificate = true;
-
             SqlConnection connection = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
 
             string query = @"SELECT [ProductId]
-              ,[ProductName]
-              ,[Quantity]
-              ,[Price]
-              ,[DeleteFlag]
-                FROM [dbo].[Tbl_Product]";
+            ,[ProductName]
+            ,[Quantity]
+            ,[Price]
+            ,[DeleteFlag]
+            ,[CreatedDateTime]
+            ,[ModifiedDateTime]
+             FROM [dbo].[Tbl_Product]";
 
             SqlCommand cmd = new SqlCommand(query, connection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt); // execute 
 
-            connection.Close();
-
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 DataRow row = dt.Rows[i];
-                //Console.WriteLine(row["ProductId"]);
                 int rowNo = i + 1;
                 decimal price = Convert.ToDecimal(row["Price"]);
                 Console.WriteLine(rowNo.ToString() + ". " + row["ProductName"] + " (" + price.ToString("n0") + " MMK)");
-                //Console.WriteLine(row["Quantity"]);
-                //Console.WriteLine("Price=> " + row["Price"]);
-                //Console.WriteLine("-----------------");
             }
-        }
 
+            connection.Close();
+
+        }
         public void Create()
         {
             string query = @"INSERT INTO [dbo].[Tbl_Product]
            ([ProductName]
            ,[Quantity]
            ,[Price]
-           ,[DeleteFlag])
-             VALUES
-           ('NewOne'
+           ,[DeleteFlag]
+           ,[CreatedDateTime]
+           )
+           VALUES
+           ('newitem'
            ,10
-           ,30000
-           ,0)";
+           ,1000
+           ,0
+           ,GETDATE()
+          )";
 
             SqlConnection connection = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
@@ -83,15 +77,14 @@ namespace NNZDotNetTrainingBatch3.ConsoleApp2
 
             Console.WriteLine(message);
         }
-
-        public void Update()
+        public void Update() 
         {
             string query = @"UPDATE [dbo].[Tbl_Product]
-             SET [ProductName] = 'UpateOne'
-            ,[Quantity] = 10
-            ,[Price] = 2000
-            ,[DeleteFlag] = 1
-            WHERE ProductId = 6";
+             SET [ProductName] = 'update one'
+             ,[Quantity] = 20
+             ,[Price] = 20000
+             ,[ModifiedDateTime] = getdate()
+             WHERE ProductId = 11";
 
             SqlConnection connection = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
@@ -104,10 +97,9 @@ namespace NNZDotNetTrainingBatch3.ConsoleApp2
 
             Console.WriteLine(message);
         }
-
         public void Delete()
         {
-            string query = @"Delete From Tbl_Product WHERE ProductId = 7;";
+            string query = @"Delete From Tbl_Product WHERE ProductId = 13;";
 
             SqlConnection connection = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
