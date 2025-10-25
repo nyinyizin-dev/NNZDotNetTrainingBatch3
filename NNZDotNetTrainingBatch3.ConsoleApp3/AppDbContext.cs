@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace NNZDotNetTrainingBatch3.ConsoleApp3
 {
-    public class AppDbContext : DbContext
+    public class ModelFirstAppDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

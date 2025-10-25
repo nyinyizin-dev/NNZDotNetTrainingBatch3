@@ -36,4 +36,14 @@ Console.WriteLine("Hello, World!");
 //saleEFCoreService.Read();
 //saleEFCoreService.Create();
 
+//ProductEFCoreDBService productEFCoreDBService = new ProductEFCoreDBService();
+//productEFCoreDBService.Read();
+//productEFCoreDBService.Create();
+//productEFCoreDBService.Update();
+//productEFCoreDBService.Delete();
+
+SaleEFCoreDBService saleEFCoreDBService = new SaleEFCoreDBService();
+saleEFCoreDBService.Read();
+saleEFCoreDBService.Create(); 
+
 Console.ReadLine();

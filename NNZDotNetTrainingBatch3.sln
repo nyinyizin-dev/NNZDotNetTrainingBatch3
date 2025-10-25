@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NNZDotNetTrainingBatch3.ConsoleApp3", "NNZDotNetTrainingBatch3.ConsoleApp3\NNZDotNetTrainingBatch3.ConsoleApp3.csproj", "{9A9F9CD2-E134-4556-A7AA-7CB3A42D9D92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NNZDotNetTrainingBatch3.ConsoleApp3.Database", "NNZDotNetTrainingBatch3.ConsoleApp3.Database\NNZDotNetTrainingBatch3.ConsoleApp3.Database.csproj", "{6832826A-2302-4215-9FDF-EEFD043F9C8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{9A9F9CD2-E134-4556-A7AA-7CB3A42D9D92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A9F9CD2-E134-4556-A7AA-7CB3A42D9D92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A9F9CD2-E134-4556-A7AA-7CB3A42D9D92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6832826A-2302-4215-9FDF-EEFD043F9C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6832826A-2302-4215-9FDF-EEFD043F9C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6832826A-2302-4215-9FDF-EEFD043F9C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6832826A-2302-4215-9FDF-EEFD043F9C8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NNZDotNetTrainingBatch3.ConsoleApp3.Database.AppDbContextModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace NNZDotNetTrainingBatch3.ConsoleApp3
 {
-    public class SaleEFCoreService
+    public class SaleEFCoreDBService
     {
-        private readonly ModelFirstAppDbContext _db;
-        public SaleEFCoreService()
+        private readonly AppDbContext _db;
+
+        public SaleEFCoreDBService()
         {
-            _db = new ModelFirstAppDbContext();
+            _db = new AppDbContext();
         }
 
         public void Read()
         {
-            var lst = _db.Sales.Where(x => x.DeleteFlag == false).ToList();
+            var lst = _db.TblSales.Where(x => x.DeleteFlag == false).ToList();
 
             for (int i = 0; i < lst.Count; i++)
             {
@@ -26,7 +28,7 @@ namespace NNZDotNetTrainingBatch3.ConsoleApp3
 
         public void Create()
         {
-            var item = new Tbl_Sale()
+            var item = new TblSale()
             {
                 ProductId = 1,
                 Quantity = 10,
@@ -34,10 +36,11 @@ namespace NNZDotNetTrainingBatch3.ConsoleApp3
                 DeleteFlag = false,
                 CreatedDateTime = DateTime.Now
             };
-            _db.Sales.Add(item);
+            _db.TblSales.Add(item);
             int result = _db.SaveChanges();
             string message = result > 0 ? "Saving Success." : "Saving Failed.";
             Console.WriteLine(message);
         }
+
     }
 }

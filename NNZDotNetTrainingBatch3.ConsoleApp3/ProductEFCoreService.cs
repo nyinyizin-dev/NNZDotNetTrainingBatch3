@@ -8,11 +8,11 @@ namespace NNZDotNetTrainingBatch3.ConsoleApp3
 {
     public class ProductEFCoreService
     {
-        private readonly AppDbContext _db;
+        private readonly ModelFirstAppDbContext _db;
 
         public ProductEFCoreService()
         {
-            _db = new AppDbContext();
+            _db = new ModelFirstAppDbContext();
         }
         public void Read() 
         {
